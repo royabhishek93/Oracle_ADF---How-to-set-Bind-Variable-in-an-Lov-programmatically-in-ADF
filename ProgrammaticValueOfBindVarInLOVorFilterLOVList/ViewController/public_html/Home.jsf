@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Home.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:inputText label="Department Id" id="it1" autoSubmit="true" 
+            binding="#{viewScope.Bean.inputTextBind}" value="#{viewScope.Bean.deptId}"/>
+            <af:button text="Filter Employee Department wise"   id="b1" 
+            actionListener="#{viewScope.Bean.setLovBindVarAL}"/>
+          
+          
+            <af:selectOneChoice value="#{bindings.EmployeeIDTrans.inputValue}" 
+                            label="Employees"
+                            required="#{bindings.EmployeeIDTrans.hints.mandatory}"
+                                shortDesc="#{bindings.EmployeeIDTrans.hints.tooltip}" id="soc1"
+                                partialTriggers="b1">
+                <f:selectItems value="#{bindings.EmployeeIDTrans.items}" id="si1"/>
+                <f:validator binding="#{bindings.EmployeeIDTrans.validator}"/>
+            </af:selectOneChoice>
+            
+
+        </af:form>
+    </af:document>
+</f:view>

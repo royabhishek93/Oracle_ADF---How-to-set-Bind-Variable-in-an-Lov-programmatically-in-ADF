@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14" id="HomePageDef"
+                Package="com.abhishek.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DropdownVO1" RangeSize="25" DataControl="AppModuleDataControl" id="DropdownVO1Iterator"/>
+  </executables>
+  <bindings>
+    <list IterBinding="DropdownVO1Iterator" StaticList="false" Uses="LOV_EmployeeIDTrans" id="EmployeeIDTrans"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <methodAction id="setBindVarAndExceuteLov" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="setBindVarAndExceuteLov" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="bindings.setBindVarAndExceuteLov.dataControl.dataProvider">
+      <NamedData NDName="deptId" NDType="java.lang.Integer"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>
